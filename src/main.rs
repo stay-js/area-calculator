@@ -1,36 +1,27 @@
+mod shapes;
+
 use dialoguer::{theme::ColorfulTheme, Select};
 use std::io::stdin;
 
-mod shapes;
-use shapes::{Shape, SHAPES};
-
-fn select_shape() -> Shape {
+fn main() {
     let selection = Select::with_theme(&ColorfulTheme::default())
         .with_prompt("Select shape:")
-        .items(&SHAPES)
+        .items(&shapes::SHAPES)
         .interact()
         .expect("Failed to select shape");
 
-    let selected_shape = match selection {
-        0 => Some(Shape::Circle),
-        1 => Some(Shape::Ellipse),
-        2 => Some(Shape::Parallelogram),
-        3 => Some(Shape::Rectangle),
-        4 => Some(Shape::RegularPolygon),
-        5 => Some(Shape::Sector),
-        6 => Some(Shape::Square),
-        7 => Some(Shape::Trapezoid),
-        8 => Some(Shape::Triangle),
+    if let Some(area) = match selection {
+        0 => Some(shapes::circle::calculate()),
+        1 => Some(shapes::ellipse::calculate()),
+        2 => Some(shapes::parallelogram::calculate()),
+        3 => Some(shapes::rectangle::calculate()),
+        4 => Some(shapes::regular_polygon::calculate()),
+        5 => Some(shapes::sector::calculate()),
+        6 => Some(shapes::square::calculate()),
+        7 => Some(shapes::trapezoid::calculate()),
+        8 => shapes::triangle::calculate(),
         _ => None,
-    };
-
-    return selected_shape.unwrap();
-}
-
-fn main() {
-    let shape = select_shape();
-
-    if let Some(area) = shape.calculate() {
+    } {
         println!("\nArea: {}", area);
     }
 
