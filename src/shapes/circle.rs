@@ -4,5 +4,5 @@ use std::f64::consts::PI;
 pub fn calculate() -> f64 {
     let radius = read_number("Radius:");
 
-    return PI * radius * radius;
+    return PI * radius.powi(2);
 }

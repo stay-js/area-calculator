@@ -1,7 +1,7 @@
 use lib::read_number::read_number;
 
 pub fn calculate() -> f64 {
-    let a = read_number("\"a\" side:");
+    let side = read_number("\"a\" side:");
 
-    return a * a;
+    return side.powi(2);
 }

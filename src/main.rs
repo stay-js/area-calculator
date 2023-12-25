@@ -16,10 +16,11 @@ fn select_shape() -> Shape {
         1 => Some(Shape::Ellipse),
         2 => Some(Shape::Parallelogram),
         3 => Some(Shape::Rectangle),
-        4 => Some(Shape::Sector),
-        5 => Some(Shape::Square),
-        6 => Some(Shape::Trapezoid),
-        7 => Some(Shape::Triangle),
+        4 => Some(Shape::RegularPolygon),
+        5 => Some(Shape::Sector),
+        6 => Some(Shape::Square),
+        7 => Some(Shape::Trapezoid),
+        8 => Some(Shape::Triangle),
         _ => None,
     };
 

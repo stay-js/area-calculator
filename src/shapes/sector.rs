@@ -5,5 +5,5 @@ pub fn calculate() -> f64 {
     let radius = read_number("Radius:");
     let angle = read_number("Angle:");
 
-    return (PI * radius * radius) * (angle / 360.0);
+    return PI * radius.powi(2) * angle / 360.0;
 }
