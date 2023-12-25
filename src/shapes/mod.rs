@@ -1,4 +1,5 @@
 mod circle;
+mod ellipse;
 mod rectangle;
 mod sector;
 mod square;
@@ -25,7 +26,7 @@ impl Shape {
             Self::Trapezoid => trapezoid::calculate(),
             Self::Circle => circle::calculate(),
             Self::Sector => sector::calculate(),
-            Self::Ellipse => todo!(),
+            Self::Ellipse => ellipse::calculate(),
             Self::Parallelogram => todo!(),
         };
 
