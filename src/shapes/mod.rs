@@ -1,5 +1,6 @@
 mod circle;
 mod ellipse;
+mod parallelogram;
 mod rectangle;
 mod sector;
 mod square;
@@ -27,7 +28,7 @@ impl Shape {
             Self::Circle => circle::calculate(),
             Self::Sector => sector::calculate(),
             Self::Ellipse => ellipse::calculate(),
-            Self::Parallelogram => todo!(),
+            Self::Parallelogram => parallelogram::calculate(),
         };
 
         println!("\nArea: {}", area);
