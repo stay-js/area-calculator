@@ -18,6 +18,17 @@ pub enum Shape {
     Triangle,
 }
 
+pub const SHAPES: [&str; 8] = [
+    "Circle",
+    "Ellipse",
+    "Parallelogram",
+    "Rectangle",
+    "Sector",
+    "Square",
+    "Trapezoid",
+    "Triangle",
+];
+
 impl Shape {
     pub fn calculate(&self) -> Option<f64> {
         return match self {
