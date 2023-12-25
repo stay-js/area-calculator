@@ -40,24 +40,29 @@ Methods:
 }
 
 fn calculate_from_base_and_height() -> f64 {
-    let base = read_number("\nPlease provide the base");
-    let height = read_number("Please provide the height");
+    let base = read_number("\nBase");
+    let height = read_number("Height");
 
     return base * height / 2.0;
 }
-fn calculate_from_sides() -> f64 {
-    let a = read_number("\nPlease provide the \"a\" side");
-    let b = read_number("Please provide the \"b\" side");
-    let c = read_number("Please provide the \"c\" side");
+fn calculate_from_sides() -> Option<f64> {
+    let a = read_number("\n\"a\" side");
+    let b = read_number("\"b\" side");
+    let c = read_number("\"c\" side");
+
+    if a + b <= c || a + c <= b || b + c <= a {
+        println!("\nInvalid triangle");
+        return None;
+    }
 
     let s = (a + b + c) / 2.0;
 
-    return (s * (s - a) * (s - b) * (s - c)).sqrt();
+    return Some((s * (s - a) * (s - b) * (s - c)).sqrt());
 }
 
-pub fn calculate() -> f64 {
+pub fn calculate() -> Option<f64> {
     return match select_method() {
-        Method::FromBaseAndHeight => calculate_from_base_and_height(),
+        Method::FromBaseAndHeight => Some(calculate_from_base_and_height()),
         Method::FromSides => calculate_from_sides(),
     };
 }

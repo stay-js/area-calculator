@@ -8,29 +8,27 @@ mod trapezoid;
 mod triangle;
 
 pub enum Shape {
-    Rectangle,
-    Square,
-    Triangle,
-    Trapezoid,
     Circle,
-    Sector,
     Ellipse,
     Parallelogram,
+    Rectangle,
+    Sector,
+    Square,
+    Trapezoid,
+    Triangle,
 }
 
 impl Shape {
-    pub fn calculate(&self) {
-        let area = match self {
-            Self::Rectangle => rectangle::calculate(),
-            Self::Square => square::calculate(),
+    pub fn calculate(&self) -> Option<f64> {
+        return match self {
+            Self::Circle => Some(circle::calculate()),
+            Self::Ellipse => Some(ellipse::calculate()),
+            Self::Parallelogram => Some(parallelogram::calculate()),
+            Self::Rectangle => Some(rectangle::calculate()),
+            Self::Sector => Some(sector::calculate()),
+            Self::Square => Some(square::calculate()),
+            Self::Trapezoid => Some(trapezoid::calculate()),
             Self::Triangle => triangle::calculate(),
-            Self::Trapezoid => trapezoid::calculate(),
-            Self::Circle => circle::calculate(),
-            Self::Sector => sector::calculate(),
-            Self::Ellipse => ellipse::calculate(),
-            Self::Parallelogram => parallelogram::calculate(),
         };
-
-        println!("\nArea: {}", area);
     }
 }
