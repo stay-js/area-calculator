@@ -65,7 +65,7 @@ Shapes:
     let mut selected_shape: Option<Shape> = None;
 
     while selected_shape.is_none() {
-        print!("\nSelect shape: ");
+        print!("Select shape: ");
         io::stdout().flush().unwrap();
 
         let mut buffer = String::new();
@@ -86,7 +86,7 @@ Shapes:
         };
 
         if selected_shape.is_none() {
-            println!("Please input a number between 1 and 8")
+            println!("Please input a number between 1 and 8\n")
         }
     }
 

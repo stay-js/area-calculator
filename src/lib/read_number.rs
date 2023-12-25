@@ -4,7 +4,7 @@ pub fn read_number(prompt: &str) -> f64 {
     let mut number = -1.0;
 
     while number < 0.0 {
-        print!("\n{}: ", prompt);
+        print!("{}: ", prompt);
         io::stdout().flush().unwrap();
 
         let mut buffer = String::new();
@@ -15,13 +15,13 @@ pub fn read_number(prompt: &str) -> f64 {
         match buffer.trim().parse() {
             Ok(num) => {
                 if num < 0.0 {
-                    println!("Must be bigger than 0");
+                    println!("Must be bigger than 0\n");
                     continue;
                 }
 
                 number = num;
             }
-            Err(_) => println!("Failed to parse input"),
+            Err(_) => println!("Failed to parse input\n"),
         };
     }
 

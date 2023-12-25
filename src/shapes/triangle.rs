@@ -17,7 +17,7 @@ Methods:
     let mut selected_method: Option<Method> = None;
 
     while selected_method.is_none() {
-        print!("\nSelect method: ");
+        print!("Select method: ");
         io::stdout().flush().unwrap();
 
         let mut buffer = String::new();
@@ -32,7 +32,7 @@ Methods:
         };
 
         if selected_method.is_none() {
-            println!("Please input a number between 1 and 2")
+            println!("Please input a number between 1 and 2\n")
         }
     }
 
@@ -40,13 +40,13 @@ Methods:
 }
 
 fn calculate_from_base_and_height() -> f64 {
-    let base = read_number("Please provide the base");
+    let base = read_number("\nPlease provide the base");
     let height = read_number("Please provide the height");
 
     return base * height / 2.0;
 }
 fn calculate_from_sides() -> f64 {
-    let a = read_number("Please provide the \"a\" side");
+    let a = read_number("\nPlease provide the \"a\" side");
     let b = read_number("Please provide the \"b\" side");
     let c = read_number("Please provide the \"c\" side");
 
