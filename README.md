@@ -1,6 +1,6 @@
-# Area calculator app built in Rust
+# Area and perimeter calculator app built in Rust
 
-This simple CLI app calculates the area of the selected shape given the required parameters.
+This simple CLI app calculates the area and/or the perimeter of the selected shape given the required parameters.
 
 ## Supported shapes:
 

@@ -1,40 +1,46 @@
 use dialoguer::{theme::ColorfulTheme, Select};
 use lib::read_number::read_number;
 
-fn calculate_from_base_and_height() -> f64 {
+fn calculate_from_base_and_height() -> (Option<f64>, Option<f64>) {
     let base = read_number("Base:");
     let height = read_number("Height:");
 
-    return base * height / 2.0;
+    let area = base * height / 2.0;
+
+    return (Some(area), None);
 }
 
-fn calculate_from_sides() -> Option<f64> {
+fn calculate_from_sides() -> (Option<f64>, Option<f64>) {
     let a = read_number("\"a\" side:");
     let b = read_number("\"b\" side:");
     let c = read_number("\"c\" side:");
 
     if a + b <= c || a + c <= b || b + c <= a {
         println!("\nInvalid triangle");
-        return None;
+        return (None, None);
     }
 
     let s = (a + b + c) / 2.0;
 
-    return Some((s * (s - a) * (s - b) * (s - c)).sqrt());
+    let area = (s * (s - a) * (s - b) * (s - c)).sqrt();
+    let perimeter = a + b + c;
+
+    return (Some(area), Some(perimeter));
 }
 
-const METHODS: [&str; 2] = ["Base and height", "Sides"];
-
-pub fn calculate() -> Option<f64> {
+pub fn calculate() -> (Option<f64>, Option<f64>) {
     let selection = Select::with_theme(&ColorfulTheme::default())
-        .with_prompt("Calculate area from:")
-        .items(&METHODS)
+        .with_prompt("To calculate:")
+        .items(&[
+            "Area (from base and height)",
+            "Perimeter and Area (from sides)",
+        ])
         .interact()
-        .expect("Failed to select method");
+        .expect("Failed to select to calculate");
 
     return match selection {
-        0 => Some(calculate_from_base_and_height()),
+        0 => calculate_from_base_and_height(),
         1 => calculate_from_sides(),
-        _ => None,
+        _ => (None, None),
     };
 }
