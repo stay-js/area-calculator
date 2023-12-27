@@ -20,7 +20,7 @@ fn main() {
         6 => shapes::square::calculate(),
         7 => shapes::trapezoid::calculate(),
         8 => shapes::triangle::calculate(),
-        _ => (None, None),
+        _ => panic!("Invalid selection"),
     };
 
     println!();

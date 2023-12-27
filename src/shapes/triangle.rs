@@ -41,6 +41,6 @@ pub fn calculate() -> (Option<f64>, Option<f64>) {
     return match selection {
         0 => calculate_from_base_and_height(),
         1 => calculate_from_sides(),
-        _ => (None, None),
+        _ => panic!("Invalid selection"),
     };
 }

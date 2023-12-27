@@ -13,12 +13,10 @@ pub fn to_calculate() -> ToCalculate {
         .interact()
         .expect("Failed to select to calculate");
 
-    let to_calculate = match selection {
-        0 => Some(ToCalculate::Area),
-        1 => Some(ToCalculate::Perimeter),
-        2 => Some(ToCalculate::Both),
-        _ => None,
+    return match selection {
+        0 => ToCalculate::Area,
+        1 => ToCalculate::Perimeter,
+        2 => ToCalculate::Both,
+        _ => panic!("Invalid selection"),
     };
-
-    return to_calculate.unwrap();
 }
