@@ -6,7 +6,7 @@ pub fn calculate() -> (Option<f64>, Option<f64>) {
     let angle = read_number("Angle:");
 
     let area = PI * radius.powi(2) * angle / 360.0;
-    let perimeter = 2.0 * PI * radius * angle / 360.0;
+    let perimeter = (angle * radius * PI / 180.0) + (2.0 * radius);
 
     return (Some(area), Some(perimeter));
 }
